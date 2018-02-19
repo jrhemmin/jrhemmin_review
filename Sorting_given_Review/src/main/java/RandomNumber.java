@@ -18,24 +18,24 @@ package main.java;
  *  @see java.lang.Math#random()
  */
 public class RandomNumber {
-        private static final long _MULTIPLIER = 16807;
-        private static final long _MODULUS =  2147483647;
+        private static final long MULTIPLIER = 16807;
+        private static final long MODULUS =  2147483647;
         // Quotient of MODULUS / MULTIPLIER
-        private static final long _QUOT = 127773; 
+        private static final long QUOT = 127773; 
         // Remainder of MODULUS / MULTIPLIER
-        private static final long _REM  = 2836;   
+        private static final long REM  = 2836;   
 
         /**
          * The current seed of the generator. 
          */
-        private long _currentSeed;
+        private long currentSeed;
     
         /**
          * Constructs a RandomNumber object and initializes it
          * with <code>System.currentTimeMillis()</code>
          */
         public RandomNumber() {
-                _currentSeed = System.currentTimeMillis() % _MODULUS;
+                currentSeed = System.currentTimeMillis() % MODULUS;
         }
     
         /**
@@ -45,7 +45,7 @@ public class RandomNumber {
          * setting of the start seed.
          */
         public RandomNumber(long seed) {
-                _currentSeed = Math.abs(seed) % _MODULUS;
+                currentSeed = Math.abs(seed) % MODULUS;
         }
                 
         
@@ -54,10 +54,10 @@ public class RandomNumber {
          * @return The next random number in [0,1].
          */
         public double nextDoubleRand() {
-                long temp = _MULTIPLIER*(_currentSeed%_QUOT) - 
-                                _REM*(_currentSeed/_QUOT);
-                _currentSeed = (temp > 0) ? temp : temp + _MODULUS;
-                return (double) _currentSeed / (double) _MODULUS;
+                long temp = MULTIPLIER*(currentSeed%QUOT) - 
+                                REM*(currentSeed/QUOT);
+                currentSeed = (temp > 0) ? temp : temp + MODULUS;
+                return (double) currentSeed / (double) MODULUS;
         }
         
         /**

@@ -21,11 +21,11 @@ import java.awt.event.ActionEvent;
 public class SortDemo extends Applet {
 
 		SortDemoData data = new SortDemoData();
-        private TextArea input, output;  
-        private Button startBtn;
-        private Choice choiceBtn;
-        private Panel p1, p2, p3;
-        private String helpStr = 
+        private TextArea _input, _output;  
+        private Button _startBtn;
+        private Choice _choiceBtn;
+        private Panel _p1, _p2, _p3;
+        private String _helpStr = 
                 "Please enter an int value or a string of int numbers \n"
                 + "If you only entered one number a randomized \n"
                 + "array will be created.  \n"
@@ -39,62 +39,63 @@ public class SortDemo extends Applet {
                 setLayout(new FlowLayout(FlowLayout.LEFT));
                 setFont(new Font("Courier", Font.PLAIN, 18));
         
-                p1 = new Panel();
-                p2 = new Panel();
-                p3 = new Panel();
+                _p1 = new Panel();
+                _p2 = new Panel();
+                _p3 = new Panel();
                 
-                p1.setLayout(new FlowLayout(FlowLayout.LEFT));
+                _p1.setLayout(new FlowLayout(FlowLayout.LEFT));
                 
-                input = new TextArea("63 24 12 53 72 18 44 80 ", 5, 60);
-                p1.add(input);          // put input on panel
+                _input = new TextArea("63 24 12 53 72 18 44 80 ", 5, 60);
+                _p1.add(_input);          // put input on panel
         
-                p2.setLayout(new FlowLayout(FlowLayout.LEFT));
+                _p2.setLayout(new FlowLayout(FlowLayout.LEFT));
                
                                 
-                choiceBtn = new Choice();
-                choiceBtn.setFont(new Font("Times", Font.PLAIN, 18));
-                choiceBtn.addItem("  Bubble Sort  ");
-                choiceBtn.addItem("  Selection Sort  ");
-                choiceBtn.addItem("  Insertion Sort  ");
-                choiceBtn.addItem("  Merge Sort  ");
-                choiceBtn.addItem("  Quick Sort  ");
-                choiceBtn.addItem("  Heap Sort  ");
-                choiceBtn.setSize(2000,500);
-                System.out.println(choiceBtn.getSize().toString());
-                p2.add(choiceBtn);
+                _choiceBtn = new Choice();
+                _choiceBtn.setFont(new Font("Times", Font.PLAIN, 18));
+                _choiceBtn.addItem("  Bubble Sort  ");
+                _choiceBtn.addItem("  Selection Sort  ");
+                _choiceBtn.addItem("  Insertion Sort  ");
+                _choiceBtn.addItem("  Merge Sort  ");
+                _choiceBtn.addItem("  Quick Sort  ");
+                _choiceBtn.addItem("  Heap Sort  ");
+                _choiceBtn.setSize(2000,500);
+                System.out.println(_choiceBtn.getSize().toString());
+                _p2.add(_choiceBtn);
             
-                startBtn = new Button("  Start  ");
-                startBtn.setFont(new Font("Times", Font.PLAIN, 18));	
-                startBtn.addActionListener(new ActionListener(){
+                _startBtn = new Button("  Start  ");
+                _startBtn.setFont(new Font("Times", Font.PLAIN, 18));	
+                _startBtn.addActionListener(new ActionListener(){
                         public void actionPerformed(ActionEvent e){
                                 runDemo();
                         }
                 });
-                p2.add(startBtn);
+                _p2.add(_startBtn);
                 
-                p3.setLayout(new FlowLayout(FlowLayout.LEFT));
-                output = new TextArea(helpStr, 15, 60);
-                p3.add(output);
+                _p3.setLayout(new FlowLayout(FlowLayout.LEFT));
+                _output = new TextArea(_helpStr, 15, 60);
+                _p3.add(_output);
                                     
-                add(p1);
-                add(p2);
-                add(p3);
+                add(_p1);
+                add(_p2);
+                add(_p3);
         }
         
         private void readArray(){
-        	 String inputStr = input.getText();
-        	 data.initializeArray(inputStr);
+        	 String _inputStr = _input.getText();
+        	 data.initializeArray(_inputStr);
         	 
         }
+        
              
         // process user's action on the input text field
         public void displayHelp() {
-                output.setText(helpStr); 
+                _output.setText(_helpStr); 
         }
         
         public void runDemo() {  
                 try {
-                        output.setText("");
+                        _output.setText("");
                         long startTime = System.currentTimeMillis();
                         readArray();              
                         long endTime = System.currentTimeMillis();
@@ -102,12 +103,12 @@ public class SortDemo extends Applet {
                         String initTime = new String(
                                 "Time to create array: "
                                 + Long.toString(runTime) + " ms\n");  
-                        output.setText(initTime);  
+                        _output.setText(initTime);  
                         
-                        int choice = choiceBtn.getSelectedIndex();
+                        int choice = _choiceBtn.getSelectedIndex();
                         
-                        StringBuffer outputBuf = data.runAlgo(choice);
-                        String choiceStr = choiceBtn.getSelectedItem();
+                        StringBuffer _outputBuf = data.runAlgo(choice);
+                        String choiceStr = _choiceBtn.getSelectedItem();
                         
                         endTime = System.currentTimeMillis();
                         runTime = endTime - startTime;        
@@ -117,11 +118,11 @@ public class SortDemo extends Applet {
                                 "Time needed for " 
                                 + choiceStr + ": "
                                 + Long.toString(runTime) + " ms\n");    
-                        output.append(sortTime);    
+                        _output.append(sortTime);    
                         
                         
-                        output.setText(initTime + sortTime + "\r" 
-                        		+ outputBuf.toString()); 
+                        _output.setText(initTime + sortTime + "\r" 
+                        		+ _outputBuf.toString()); 
                         		
                 // check routine
                 
