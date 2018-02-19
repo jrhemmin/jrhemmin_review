@@ -22,7 +22,7 @@ final class Main {
 		
 		if (args.length == 0) {
 			accStr = "20";
-			choice = "1";
+			choice = "2";
 			
 		}
 		else{
