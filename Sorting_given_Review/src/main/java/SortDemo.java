@@ -86,7 +86,6 @@ public class SortDemo extends Applet {
         	 data.initializeArray(inputStr);
         	 
         }
-        
              
         // process user's action on the input text field
         public void displayHelp() {

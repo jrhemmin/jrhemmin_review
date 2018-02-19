@@ -136,7 +136,7 @@ public final class SortAlgos {
                 if (insPos == fromPos) {
                 		return;
                 }
-                System.out.println("here");
+                //System.out.println("here");
                 Item temp = vec[fromPos];
                 for (int i = fromPos; i > insPos; i--) vec[i] = vec[i-1];
                 vec[insPos] = temp;
