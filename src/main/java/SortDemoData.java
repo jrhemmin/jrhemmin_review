@@ -14,7 +14,14 @@ public class SortDemoData  {
         }
         
         
-        // read numbers from input to array myArray
+        /**
+         * The initializeArray method reads numbers from input and puts them into a new
+         * array called myArray.
+         * @param string
+         * @throws NumberFormatException
+         * @throws NoSuchElementException
+         * @throws NegativeArraySizeException
+         */
         public void initializeArray(String string) throws NumberFormatException, 
         NoSuchElementException, NegativeArraySizeException{
 
