@@ -18,8 +18,10 @@ public final class SortAlgos {
 	     * is not initialized
          */
         public static void bubbleSort(Item[] vec) 
-                            throws NullPointerException {
-                if (vec == null) throw new NullPointerException();
+                            throws NullPointerException{ 
+                if (vec == null){
+                		throw new NullPointerException();
+                }
         
 		        int n = vec.length; 
 		        Item temp;
@@ -43,7 +45,9 @@ public final class SortAlgos {
          */
         public static void selectionSort(Item vec[]) 
                             throws NullPointerException {
-                if (vec == null) throw new NullPointerException();
+                if (vec == null) {
+                		throw new NullPointerException();
+                }
                 
                 int minIndx;            // Index of smallest key in each pass
                 int bottom;             // bottom for each pass
@@ -80,7 +84,9 @@ public final class SortAlgos {
          */
         public static void insertionSort(Item vec[]) 
                         throws NullPointerException {
-                if (vec == null) throw new NullPointerException();
+                if (vec == null) {
+                		throw new NullPointerException();
+                }
                 int n = vec.length;
                 int currentPos, insPos; 
                 for (currentPos = 1; currentPos < n; currentPos++) {
@@ -127,7 +133,9 @@ public final class SortAlgos {
          */
         private static void insertAtPosition(Item[] vec, int insPos, 
                                                          int fromPos ) {
-                if (insPos == fromPos) return;
+                if (insPos == fromPos) {
+                		return;
+                }
                 System.out.println("here");
                 Item temp = vec[fromPos];
                 for (int i = fromPos; i > insPos; i--) vec[i] = vec[i-1];
@@ -143,7 +151,9 @@ public final class SortAlgos {
          */
         public static void mergeSort(Item vec[]) 
                                 throws NullPointerException {
-                if (vec == null) throw new NullPointerException();
+                if (vec == null) {
+                		throw new NullPointerException();
+                }
                 mergeSort(vec, 0, vec.length - 1);
         }
         
@@ -196,7 +206,9 @@ public final class SortAlgos {
          * @param last end of the range
          */
         private static void mergeSort(Item[] vec, int first, int last) {
-                if (first == last) return;	
+                if (first == last) {
+                		return;	
+                }
                 // devide vec into 2 equal parts
                 int middle = (first + last) / 2; 
                 mergeSort(vec, first, middle);   // sort the first part
@@ -213,7 +225,9 @@ public final class SortAlgos {
          */
         public static void quickSort(Item[] vec) 
                                 throws NullPointerException {
-                if (vec == null) throw new NullPointerException();
+                if (vec == null) {
+                		throw new NullPointerException();
+                }
                 quickSort(vec, 0, vec.length - 1);
         }
         
@@ -271,10 +285,13 @@ public final class SortAlgos {
                 vec[loBound] = vec[hiSwap];
                 vec[hiSwap] = pivotItem;
         
-                if (loBound < hiSwap-1)     // 2 or more items in 1st subvec
+                if (loBound < hiSwap-1) {    // 2 or more items in 1st subvec
                         quickSort(vec, loBound, hiSwap-1);
+                }
         
-                if (hiSwap+1 < hiBound)     // 2 or more items in 2nd subvec
+                if (hiSwap+1 < hiBound)  {
+                		// 2 or more items in 2nd subvec
+                }
                         quickSort(vec, hiSwap+1, hiBound);
         }
     
@@ -289,7 +306,9 @@ public final class SortAlgos {
                 Item temp;
                 int child;
             
-                if (2*top+1 > bottom) return; // nothing to do 
+                if (2*top+1 > bottom) {
+                		return; // nothing to do 
+                }
             
                 if (2*top+2 > bottom) { 
                         // vec[2*top+1] is only child of vec[top]
@@ -328,7 +347,9 @@ public final class SortAlgos {
          */
         public static void heapSort(Item[] vec) 
                                 throws NullPointerException {
-                if (vec == null) throw new NullPointerException();
+                if (vec == null) {
+                		throw new NullPointerException();
+                }
     
                 Item temp;
                 int last;
